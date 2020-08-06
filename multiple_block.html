@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!--with margin and padding-->
+    <style>
+        html,body{
+            margin: 0px;
+        }
+
+        .parent{
+            background: red;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .child1{
+           
+            background:pink;
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+
+        .child2{
+            background: hotpink;
+            flex: 9;
+            align-items: center; 
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+           
+        }
+
+        .child3{
+            background: pink;
+            flex: 1;
+            display: flex;
+           
+            
+            
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class=parent>
+        <div class=child1>
+            <div style=
+            "background: yellow;
+            padding: 12px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            font-size: 16px;
+            font-weight: bold;">search</div>
+            <div style=
+            "background: yellowgreen;
+            padding: 12px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            font-size: 15px;
+            font-weight: bold;">home</div>
+        </div>
+        
+        
+        
+        <div class=child2>
+            <div style=" font-size: 45px;font-family: fantasy;">11:50 am</div>
+            <div style=" font-size: 45px;font-family: fantasy;">hey there,Good Morning</div>
+        </div>
+        <div class=child3>
+            <div style="background: saddlebrown;flex: 1;justify-content: center;display: flex;align-items: center;"> A</div>
+            <div style="background: salmon;flex: 1;justify-content: center;display: flex;align-items: center;">B</div>
+            <div style="background: seagreen;flex: 1;justify-content: center;display: flex;align-items: center;">C</div>
+        </div>
+    </div>
+</body>
+</html>
