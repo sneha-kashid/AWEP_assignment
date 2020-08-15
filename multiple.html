@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<style type="text/css">
+    .fall
+    {
+        transform: translateY(8rem) rotateZ(20deg);
+        opacity: 0;
+    }
+
+</style>
+
+<body>
+    <div class="container-fluid" style="height: 100vh">
+        <!--navbar-->
+        <div class="row justify-content-between bg-dark" style="color: white;height: 10vh;align-items: center">
+            <div>MY PROJECT</div>
+            <div>
+                <button>LOGOUT</button>
+            </div>
+        </div>
+        <!--        hello post-->
+        <div class="mb-2">
+            <div class="row justify-content-center">
+                <div class="col-6 d-flex justify-content-center align-items-center bg-warning" style="height: 30vh">HELLO</div>
+            </div>
+            <!--        button-->
+            <div class="row justify-content-center mt-2">
+
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-md-3 p-0">
+                            <button class="btn btn-outline-primary btn-md btn-block" onclick="likefunc(this)">LIKE <span>0</span></button>
+                        </div>
+                        <div class="col-md-6 p-0">
+                            <input type="text" class="form-control" id="usercmt" placeholder="Enter your comment">
+                        </div>
+                        <div class="col-md-3 d-flex mb-1 p-0">
+                            <button class="btnbtn-md btn-block btn-outline-dark rounded" onclick="cmt(this)">COMMENT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center" style="flex-direction: column;align-items: center">
+                <div class="col-6" id="maindiv">
+                    <div class="row justify-content-between align-items-center mb-1" id="innermain" style="display: none">
+                        <div class="d-flex align-items-center ">SAMPLE</div>
+                        <div>
+                            <button class="btn btn-success" onclick="del(this)">DELETE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--    2nd post-->
+        <div class="mb-2">
+            <div class="row justify-content-center">
+                <div class="col-6 d-flex justify-content-center align-items-center bg-primary" style="height: 30vh">HELLO</div>
+            </div>
+            <!--        button-->
+            <div class="row justify-content-center mt-2">
+
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-md-3 p-0">
+                            <button class="btn btn-outline-primary btn-md btn-block" onclick="likefunc(this)">LIKE <span>0</span></button>
+                        </div>
+                        <div class="col-md-6 p-0">
+                            <input type="text" class="form-control" id="usercmt" placeholder="Enter your comment">
+                        </div>
+                        <div class="col-md-3 d-flex mb-1 p-0">
+                            <button class="btnbtn-md btn-block btn-outline-dark rounded" onclick="cmt(this)">COMMENT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center" style="flex-direction: column;align-items: center">
+                <div class="col-6" id="maindiv">
+                    <div class="row justify-content-between align-items-center mb-1" id="innermain" style="display: none">
+                        <div class="d-flex align-items-center ">SAMPLE</div>
+                        <div>
+                            <button class="btn btn-success" onclick="del(this)">DELETE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    function cmt(cmtbtnref) {
+        let cmt = cmtbtnref.parentElement.parentElement.children[1].children[0];
+        if (cmt.value == "") {
+            return false;
+        }
+
+        const combox = cmtbtnref.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].children[0].children[0].cloneNode(true);
+
+        const cmtbox = cmtbtnref.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].children[0];
+
+        combox.children[0].innerHTML = cmt.value;
+        combox.style.display = 'flex';
+        cmtbox.append(combox);
+        cmtbtnref.parentElement.parentElement.children[1].children[0].value = "";
+    }
+
+    function likefunc(btnElement) {
+
+        let postLikeCount = btnElement.children[0].innerHTML;
+        let postNumCount = parseInt(postLikeCount);
+
+        postNumCount++;
+
+        btnElement.children[0].innerHTML = postNumCount;
+    }
+
+    function del(delref) {
+        const delnode = delref.parentElement.parentElement;
+        delnode.classList.add("fall");
+        delnode.style.transition = "all 5s ease";
+        delnode.addEventListener('transitionend',function(){
+            delnode.remove();
+        })
+
+    }
+</script></html>
