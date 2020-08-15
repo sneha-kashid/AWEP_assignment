@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input id="usercmt" type="text" placeholder="Type Here">
+        <button onclick="Addcomment()">Add</button>
+    </div>
+
+    <div style="margin-top: 2px;">
+        <button id="like" onclick="likepost()">Like</button>
+        <button  id="dislike" onclick="dislikepost()">Dislike</button>
+    </div>
+
+    <div id="maindiv">
+        <div id="innerdiv" style="display: flex; justify-content: space-between;">
+            <div>Smaple Comment</div>
+            <button onclick="deletecomment(this)">Delete</button>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    let count=0;
+    function likepost()
+    {
+        let a=document.getElementById("like");
+        count++;
+        a.innerHTML=count;
+    }
+
+    function dislikepost()
+    {
+        let b=document.getElementById("dislike");
+        count++;
+        b.innerHTML=count;
+    }
+
+    function Addcomment()
+    {
+        let comment=document.querySelector("#usercmt").value;
+        const newdiv=document.querySelector("#innerdiv").cloneNode(true);
+        newdiv.children[0].innerHTML=comment;
+        document.querySelector("#maindiv").append(newdiv);
+        document.querySelector("#usercmt").value="";
+    }
+
+    function deletecomment(currentBtnRef)
+    {
+        currentBtnRef.parentElement.remove();
+    }
+
+</script>
+
+</html>
